@@ -17,7 +17,7 @@ With Hosted Solutions, any given software is completely managed by the provider,
   - VMware Tanzu Kubernetes. 
 
 - **Turnkey Cloud Solutions**
-Below are only a few of the <a href="https://kubernetes.io/docs/setup/production-environment/turnkey/" target="_">Turnkey Cloud Solutions</a> (listed in alphabetical order), to install Kubernetes on an underlying IaaS platform, such as:
+Below are only a few of the <a href="https://kubernetes.io/docs/setup/production-environment/turnkey/" target="_blank">Turnkey Cloud Solutions</a> (listed in alphabetical order), to install Kubernetes on an underlying IaaS platform, such as:
 
   - Alibaba Cloud 
   - Amazon AWS (AWS EC2)
