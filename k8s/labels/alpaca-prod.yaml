@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: alpaca-prod
+  labels:
+    app: alpaca
+    enviroment: prod
+    ver: "1"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      tier: "backend"
+  template:
+    metadata:
+      labels:
+        tier: "backend"
+    spec:
+      containers:
+      - name: alpaca-prod
+        image: "gcr.io/kuar-demo/kuard-amd64:blue"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+          - containerPort: 8080
