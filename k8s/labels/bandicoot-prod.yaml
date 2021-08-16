@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: bandicoot-prod
+  labels:
+    app: bandicoot
+    enviroment: prod
+    ver: "2"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      tier: "backend"
+  template:
+    metadata:
+      labels:
+        tier: "backend"
+    spec:
+      containers:
+      - name: bandicoot-prod
+        image: "gcr.io/kuar-demo/kuard-amd64:green"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+          - containerPort: 8080
