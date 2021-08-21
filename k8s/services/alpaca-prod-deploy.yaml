@@ -4,6 +4,7 @@ metadata:
   name: alpaca-prod
   labels:
     app: alpaca
+    env: prod
 spec:
   replicas: 3
   selector:
