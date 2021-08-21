@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: alpaca-prod
 spec:
+  type: LoadBalancer
   selector:
     app: alpaca-prod
   ports:
