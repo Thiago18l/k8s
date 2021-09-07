@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: path-ingress
+  labels:
+    name: path-ingress
+spec:
+  rules:
+  - host: myexample.com
+    http:
+      paths:
+      - path: "/"
+        backend:
+          serviceName: bandicoot-prod
+          servicePort: 8080
+      - path: "/alpaca/"
+        backend:
+          serviceName: alpaca-prod
+          servicePort: 8080
+
