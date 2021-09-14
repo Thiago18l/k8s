@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuard
+spec:
+  # the deployment must wait for 60 seconds after seeing a pod become healthy before moving on to updating the
+  # next pod.
+  minReadySeconds: 60
+  # set timeout for the pod become healthy, if in 10 min the deployment fails, it is marked as failed and all attemps to move the deployment
+  # forward are halted
+  progressDeadlineSeconds: 600
+  revisionHistoryLimit: 14
+  selector:
+    matchLabels:
+      app: kuard
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kuard
+    spec:
+      containers:
+      - name: kuard
+        image: gcr.io/kuar-demo/kuard-amd64:blue
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
