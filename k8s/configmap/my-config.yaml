@@ -1,0 +1,13 @@
+apiVersion: v1
+data:
+  my-config.txt: |
+    # This is a sample config file that I might use to configure an application
+    parameter1 = value1
+    parameter2 = value2
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2021-09-15T00:39:56Z"
+  name: my-config
+  namespace: default
+  resourceVersion: "56175"
+  uid: 8894b2d9-80e3-458a-90aa-2f5cf3d32a50
