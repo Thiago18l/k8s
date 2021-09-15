@@ -1,5 +1,7 @@
 apiVersion: v1
 data:
+  another-param: another-param
+  extra-param: extra-value
   my-config.txt: |
     # This is a sample config file that I might use to configure an application
     parameter1 = value1
