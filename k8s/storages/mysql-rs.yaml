@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mysql
+  # labels so that we can bind a svc to this pod
+  labels:
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: database
+          image: mysql
+          resources:
+            requests:
+              cpu: "1"
+              memory: 2Gi
+          env:
+            # Enviroment variables are not a best pratice for security
+            # but we're using them here for brevity in the example
+            - name: MYSQL_ROOT_PASSWORD
+              value: "4050"
+          livenessProbe:
+            tcpSocket:
+              port: 3306
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - mountPath: "/var/lib/mysql"
+              name: database
+      volumes:
+        - name: database
+          persistentVolumeClaim:
+            claimName: database

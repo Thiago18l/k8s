@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: database
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  resources:
+    requests:
+      storage: 1Gi
+  accessModes:
+    - ReadWriteMany
